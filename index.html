@@ -1,0 +1,91 @@
+<!--
+ hpSupplies160x600 - An HTML banner
+ @version v1.0.0
+ @date 10-7-2016 at 17:17:32
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>160x600</title>
+    <meta name="ad.size" content="width=160,height=600">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style type="text/css">
+    #container_ad {
+        z-index: 20;
+        opacity: 0
+    }
+    
+    button {
+        background: 0 0;
+        outline: 0;
+        border: 0
+    }
+	 #cta_id {
+		position:absolute;
+        background-color:#9C0;
+		width:102px;
+		height:33px;
+		opacity:0;
+		z-index:399;
+		top:383px;
+		left:160px;
+		cursor:pointer;
+    }
+    </style>
+    <script>
+     var clickTag = "{CLICK_URL}http://www8.hp.com/id/en/cartridge/ink.html?jumpid=mb_wvrz2sfk86"
+    </script>
+    <script>
+    function _politeLoad(e, t) {
+        var a, n = e.length,
+            d = 0,
+            s = function() {
+                ++d === n && t && t()
+            };
+        for (a = 0; a < n; a++) _loadScript(e[a], s)
+    }
+
+    function _loadScript(e, t) {
+        var a = document.createElement("script");
+        a.type = "text/javascript", a.readyState ? a.onreadystatechange = function() {
+            "loaded" != a.readyState && "complete" != a.readyState || (a.onreadystatechange = null, t())
+        } : a.onload = function() {
+            t()
+        }, a.src = e, document.getElementsByTagName("head")[0].appendChild(a)
+    }
+
+    function pageLoadedHandler() {
+        _politeLoad(["https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js", "https://s0.2mdn.net/ads/studio/cached_libs/easeljs_0.8.1_58add2e69ca7fbe25e8f82a2b5f6a510_min.js", "script.js"], function() {
+            bannerInit()
+        });
+        var e = document.createElement("link");
+        e.setAttribute("rel", "stylesheet"), e.setAttribute("type", "text/css"), e.setAttribute("href", "style.css"), document.getElementsByTagName("head")[0].appendChild(e), document.getElementById("container_ad").style.display = "block"
+    }
+    </script>
+</head>
+
+<body onload="pageLoadedHandler()">
+    <div id="container_ad">
+        <div id="content_ad">
+            <div id="bg"></div>
+            <div id="product" style="background-image:url(product.png)"></div>
+            <div id="hd2"></div>
+            <div id="hd3"></div> 
+            
+            <dir id="tag"></dir>
+            <dir id="logo"></dir>
+            <canvas id="myCanvas" width="320" height="1200" style="width:160px;height:600px"></canvas>
+            <div id="hd1"></div>
+        </div>
+        <button id="background_exit_ad"></button>
+        <div id="cta_id"></div>
+    </div>
+    <script>
+    document.getElementById("background_exit_ad").onclick = function() {
+       window.open(window.clickTag);
+    }
+    </script>
+</body>
+
+</html>
